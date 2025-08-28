@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Rhea reaction visualizer</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script src="https://unpkg.com/@webcomponents/custom-elements"></script>
+    <script defer="defer" src="demo.js"></script>
+    <link href="demo.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="webPage">
+      <h1>Rhea reaction visualizer</h1>
+      <template id="styles"
+        ><style>
+          a {
+            color: black;
+          }
+        </style></template
+      >
+      <div class="svgContainer">
+        <div>Polymer reaction</div>
+        <rhea-visualizer
+          nosource
+          styleid="styles"
+          rheaid="23152"
+        ></rhea-visualizer>
+        <div>General small molecule reaction</div>
+        <rhea-visualizer
+          nosource
+          styleid="styles"
+           
+           
+          rheaid="23240"
+        ></rhea-visualizer>
+      </div>
+    </div>
+  </body>
+</html>
