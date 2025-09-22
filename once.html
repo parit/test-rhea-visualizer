@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rhea reaction visualizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/@webcomponents/custom-elements"></script>
+<script defer="defer" src="demo-once.js"></script><link href="demo.css" rel="stylesheet"/></head>
+
+<body>
+    <div class="webPage">
+        <div class="updateWrapper">
+            <input id="rheaId" type="text"></input>
+            <button class="updatebutton">Update reaction</button>
+        </div>
+        <template id="styles">
+            <style>
+                a {
+                    color:black
+                }
+                
+            </style>
+        </template>
+        <div class="svgContainer">
+            <rhea-visualizer nosource styleid="styles" rheaid="27802">
+            </rhea-visualizer>
+            <!--<div> Polymer reaction</div>
+            <rhea-visualizer nosource styleid="styles" usehost="http://localhost:8081" imagehost="http://localhost:8081" 
+                rheaid="23152">
+            </rhea-visualizer>
+            <div> General small molecule reaction</div>
+            <rhea-visualizer nosource styleid="styles" usehost="http://localhost:8081" imagehost="http://localhost:8081" 
+                rheaid="23240">
+            </rhea-visualizer>
+            <div> General small molecule reaction with default as reaction tab</div>
+            <rhea-visualizer reactiontab shownewchebi nosource styleid="styles" usehost="http://localhost:8081" imagehost="http://localhost:8081" 
+                rheaid="23240">
+            </rhea-visualizer>
+            <div> Slightly bigger molecule</div>
+            <rhea-visualizer nosource styleid="styles" usehost="http://localhost:8081" imagehost="http://localhost:8081" 
+                rheaid="23248">
+            </rhea-visualizer>
+            <div> Generic with * atom</div>
+            <rhea-visualizer nosource styleid="styles" usehost="http://localhost:8081" imagehost="http://localhost:8081" 
+                rheaid="23172">
+            </rhea-visualizer>
+            <div> Generic with positional information</div>
+            <rhea-visualizer nosource styleid="styles" usehost="http://localhost:8081" imagehost="http://localhost:8081" 
+                rheaid="42396">
+             </rhea-visualizer>-->
+        </div>
+        <!--<rhea-reaction usehost="https://api.rhea-db.org" rheaid="11668" showids zoom></rhea-reaction>
+        <rhea-reaction structuresearch=true rheaid="10008" zoom showids></rhea-reaction>
+        <rhea-reaction structuresearch=true rheaid="10068" zoom showids></rhea-reaction>
+        <rhea-reaction structuresearch=true rheaid="60148" zoom showids></rhea-reaction>-->
+        <!--<rhea-reaction rheaid="60148" zoom showids></rhea-reaction>
+        <rhea-reaction rheaid="39747" zoom showids></rhea-reaction>
+        <rhea-reaction rheaid="15845" zoom showids></rhea-reaction>-->
+    </div>
+
+    <script type="text/javascript">
+        document.querySelector('.updatebutton')
+            .addEventListener('click', e => {
+                let id = document.querySelector("#rheaId").value.trim();
+                if (id.length > 0) {
+                    if (id.toUpperCase().startsWith("RHEA:"))
+                        id = id.subString(5);
+                    document.querySelector("rhea-visualizer").setAttribute('rheaid', id);
+                }
+            });
+    </script>
+
+<!--    <script type="text/javascript">
+        Array.from(document.querySelectorAll('rhea-reaction'))
+            .forEach(el => {
+                el.addEventListener('zoomClicked', e => {
+                    console.log("zoom clicked for compound with details " + JSON.stringify(e.detail));
+                    alert("zoom clicked for compound with details " + JSON.stringify(e.detail));
+                });
+            });
+    </script>-->
+</body>
+
+</html>
